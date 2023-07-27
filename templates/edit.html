@@ -1,0 +1,15 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block content %}
+
+<p>Title: {{ book.title }}</p><br>
+<p>Author: {{ book.author }}</p><br>
+<p>Current Rating: {{ book.rating }}</p>
+<form action="{{ url_for('edit') }}" method="POST">
+    <label>New Rating:</label>
+    <input name="new_rating" type="text">
+    <input hidden="hidden" name="id" value="{{book.id}}">
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock %}
